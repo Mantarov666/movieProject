@@ -7,7 +7,9 @@ exports.create = (movieData)=> Movie.create(movieData)
 exports.getAll = ()=> Movie.find();
 
 
-exports.getOne = (id) =>{
-
-   return movie.find(film=> film._id==id)
-}
+exports.getOne = (movieId) => {
+    const movie = Movie.findById(movieId)
+    return movie
+} 
+ 
+   

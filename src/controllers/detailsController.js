@@ -3,9 +3,11 @@ const router = require('express').Router();
 const movieService = require('../services/movieService')
 
 
-    router.get('/movie/:movieId', (req, res)=>{
-        const filmId = req.params.movieId;
-       const detFilm =  movieService.getOne(filmId); 
+ router.get('/movies/:movieId', async (req, res)=>{
+        const movieId = req.params.movieId;
+
+       const detFilm = await movieService.getOne(movieId).lean(); 
+     
         
         res.render('details', {detFilm})
     })
